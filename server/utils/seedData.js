@@ -60,7 +60,7 @@ const recipesData = [
   // Indian Recipes
   {
     title: 'Chicken Biryani',
-    description: 'Aromatic basmati rice layered with spiced chicken, a classic Indian dish perfect for special occasions.',
+    description: 'A royal feast of aromatic basmati rice layered with tender spiced chicken, caramelized onions, and fragrant saffron. This traditional Indian dish combines complex spices with slow-cooking techniques to create an unforgettable dining experience.',
     cuisine: 'Indian',
     difficulty: 'intermediate',
     prepTime: 45,
@@ -70,25 +70,32 @@ const recipesData = [
     ingredients: [
       { name: 'basmati rice', amount: '2', unit: 'cup', category: 'grain' },
       { name: 'chicken', amount: '1', unit: 'lb', category: 'protein' },
-      { name: 'onion', amount: '2', unit: 'piece', category: 'vegetable' },
+      { name: 'onion', amount: '3', unit: 'piece', category: 'vegetable' },
       { name: 'yogurt', amount: '1/2', unit: 'cup', category: 'dairy' },
-      { name: 'garam masala', amount: '2', unit: 'tsp', category: 'spice' }
+      { name: 'garam masala', amount: '2', unit: 'tsp', category: 'spice' },
+      { name: 'saffron', amount: '1/4', unit: 'tsp', category: 'spice' },
+      { name: 'mint leaves', amount: '1/4', unit: 'cup', category: 'spice' },
+      { name: 'cilantro', amount: '1/4', unit: 'cup', category: 'spice' },
+      { name: 'ghee', amount: '3', unit: 'tbsp', category: 'dairy' },
+      { name: 'ginger-garlic paste', amount: '2', unit: 'tbsp', category: 'spice' }
     ],
     instructions: [
-      { step: 1, instruction: 'Soak basmati rice for 30 minutes', duration: 30 },
-      { step: 2, instruction: 'Marinate chicken with yogurt and spices', duration: 20 },
-      { step: 3, instruction: 'Fry onions until golden brown', duration: 10 },
-      { step: 4, instruction: 'Cook chicken until tender', duration: 25 },
-      { step: 5, instruction: 'Layer rice and chicken, cook on dum', duration: 45 }
+      { step: 1, instruction: 'Soak basmati rice in water for 30 minutes, then drain', duration: 30 },
+      { step: 2, instruction: 'Marinate chicken pieces with yogurt, ginger-garlic paste, and half the garam masala', duration: 20 },
+      { step: 3, instruction: 'Deep fry sliced onions until golden brown and crispy, reserve oil', duration: 15 },
+      { step: 4, instruction: 'Cook marinated chicken in the same oil until 80% done', duration: 25 },
+      { step: 5, instruction: 'Boil rice with whole spices until 70% cooked, then drain', duration: 10 },
+      { step: 6, instruction: 'Layer rice and chicken alternately, sprinkle fried onions, mint, cilantro', duration: 10 },
+      { step: 7, instruction: 'Dissolve saffron in warm milk, pour over rice, cover and cook on dum for 45 minutes', duration: 45 }
     ],
-    tags: ['spicy', 'aromatic', 'festive'],
+    tags: ['spicy', 'aromatic', 'festive', 'traditional'],
     dietaryInfo: [],
     nutrition: { calories: 450, protein: 25, carbs: 55, fat: 12 }
   },
   
   {
     title: 'Butter Chicken',
-    description: 'Creamy tomato-based curry with tender chicken pieces, a beloved Indian restaurant favorite.',
+    description: 'Tender chicken pieces simmered in a rich, creamy tomato-based sauce with aromatic spices. This beloved Indian restaurant favorite features a perfect balance of tangy tomatoes, warming spices, and luxurious cream that makes it irresistible.',
     cuisine: 'Indian',
     difficulty: 'beginner',
     prepTime: 20,
@@ -97,19 +104,24 @@ const recipesData = [
     image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
     ingredients: [
       { name: 'chicken breast', amount: '1', unit: 'lb', category: 'protein' },
-      { name: 'tomato sauce', amount: '1', unit: 'can', category: 'vegetable' },
+      { name: 'tomato puree', amount: '1', unit: 'can', category: 'vegetable' },
       { name: 'heavy cream', amount: '1/2', unit: 'cup', category: 'dairy' },
       { name: 'butter', amount: '3', unit: 'tbsp', category: 'dairy' },
-      { name: 'garam masala', amount: '1', unit: 'tsp', category: 'spice' }
+      { name: 'garam masala', amount: '1', unit: 'tsp', category: 'spice' },
+      { name: 'onion', amount: '1', unit: 'piece', category: 'vegetable' },
+      { name: 'garlic', amount: '4', unit: 'clove', category: 'vegetable' },
+      { name: 'ginger', amount: '1', unit: 'inch', category: 'spice' },
+      { name: 'cumin powder', amount: '1', unit: 'tsp', category: 'spice' },
+      { name: 'paprika', amount: '1', unit: 'tsp', category: 'spice' }
     ],
     instructions: [
-      { step: 1, instruction: 'Cut chicken into bite-sized pieces', duration: 5 },
-      { step: 2, instruction: 'Cook chicken in butter until golden', duration: 8 },
-      { step: 3, instruction: 'Add tomato sauce and spices', duration: 5 },
-      { step: 4, instruction: 'Simmer for 15 minutes', duration: 15 },
-      { step: 5, instruction: 'Stir in cream and serve', duration: 2 }
+      { step: 1, instruction: 'Cut chicken into bite-sized pieces and season with salt and pepper', duration: 5 },
+      { step: 2, instruction: 'Heat butter in a large pan and cook chicken until golden brown on all sides', duration: 8 },
+      { step: 3, instruction: 'Add minced onion, garlic, and ginger, sauté until fragrant', duration: 5 },
+      { step: 4, instruction: 'Add tomato puree, cumin, paprika, and garam masala, simmer for 15 minutes', duration: 15 },
+      { step: 5, instruction: 'Stir in heavy cream, adjust seasoning, and garnish with fresh cilantro', duration: 2 }
     ],
-    tags: ['creamy', 'mild', 'popular'],
+    tags: ['creamy', 'mild', 'popular', 'restaurant-style'],
     dietaryInfo: [],
     nutrition: { calories: 380, protein: 28, carbs: 8, fat: 26 }
   },
@@ -117,7 +129,7 @@ const recipesData = [
   // Italian Recipes
   {
     title: 'Spaghetti Carbonara',
-    description: 'Classic Roman pasta dish with eggs, cheese, pancetta, and black pepper.',
+    description: 'The ultimate Roman comfort food featuring silky pasta coated in a luxurious sauce made from eggs, aged Pecorino Romano cheese, crispy pancetta, and freshly cracked black pepper. Simple ingredients create extraordinary flavors.',
     cuisine: 'Italian',
     difficulty: 'intermediate',
     prepTime: 10,
@@ -127,18 +139,21 @@ const recipesData = [
     ingredients: [
       { name: 'spaghetti', amount: '1', unit: 'lb', category: 'grain' },
       { name: 'pancetta', amount: '4', unit: 'oz', category: 'protein' },
-      { name: 'eggs', amount: '3', unit: 'piece', category: 'protein' },
-      { name: 'parmesan cheese', amount: '1', unit: 'cup', category: 'dairy' },
-      { name: 'black pepper', amount: '1', unit: 'tsp', category: 'spice' }
+      { name: 'large eggs', amount: '3', unit: 'piece', category: 'protein' },
+      { name: 'egg yolk', amount: '1', unit: 'piece', category: 'protein' },
+      { name: 'pecorino romano cheese', amount: '1', unit: 'cup', category: 'dairy' },
+      { name: 'black pepper', amount: '1', unit: 'tsp', category: 'spice' },
+      { name: 'sea salt', amount: '1', unit: 'tsp', category: 'spice' },
+      { name: 'garlic', amount: '2', unit: 'clove', category: 'vegetable' }
     ],
     instructions: [
-      { step: 1, instruction: 'Cook spaghetti according to package directions', duration: 10 },
-      { step: 2, instruction: 'Crisp pancetta in a large pan', duration: 5 },
-      { step: 3, instruction: 'Whisk eggs with cheese and pepper', duration: 2 },
-      { step: 4, instruction: 'Toss hot pasta with pancetta', duration: 1 },
-      { step: 5, instruction: 'Add egg mixture off heat, toss quickly', duration: 2 }
+      { step: 1, instruction: 'Bring a large pot of salted water to boil and cook spaghetti until al dente', duration: 10 },
+      { step: 2, instruction: 'Cut pancetta into small cubes and cook in a large pan until crispy', duration: 5 },
+      { step: 3, instruction: 'Whisk together eggs, egg yolk, grated cheese, and freshly ground black pepper', duration: 2 },
+      { step: 4, instruction: 'Reserve 1 cup pasta water, then drain pasta and add to pan with pancetta', duration: 1 },
+      { step: 5, instruction: 'Remove from heat, add egg mixture while tossing quickly, adding pasta water as needed', duration: 2 }
     ],
-    tags: ['quick', 'classic', 'creamy'],
+    tags: ['quick', 'classic', 'creamy', 'authentic'],
     dietaryInfo: [],
     nutrition: { calories: 520, protein: 22, carbs: 65, fat: 18 }
   },
@@ -174,7 +189,7 @@ const recipesData = [
   // Mexican Recipes
   {
     title: 'Chicken Tacos',
-    description: 'Seasoned chicken served in soft tortillas with fresh toppings.',
+    description: 'Authentic Mexican street-style tacos featuring perfectly seasoned chicken with a blend of cumin, chili powder, and lime. Served in warm corn tortillas with fresh cilantro, diced onions, and a squeeze of lime for that perfect tangy finish.',
     cuisine: 'Mexican',
     difficulty: 'beginner',
     prepTime: 15,
@@ -182,20 +197,24 @@ const recipesData = [
     servings: 4,
     image: 'https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
     ingredients: [
-      { name: 'chicken breast', amount: '1', unit: 'lb', category: 'protein' },
+      { name: 'chicken thighs', amount: '1', unit: 'lb', category: 'protein' },
       { name: 'corn tortillas', amount: '8', unit: 'piece', category: 'grain' },
-      { name: 'onion', amount: '1', unit: 'piece', category: 'vegetable' },
-      { name: 'cilantro', amount: '1/4', unit: 'cup', category: 'spice' },
-      { name: 'lime', amount: '2', unit: 'piece', category: 'fruit' }
+      { name: 'white onion', amount: '1', unit: 'piece', category: 'vegetable' },
+      { name: 'cilantro', amount: '1/2', unit: 'cup', category: 'spice' },
+      { name: 'lime', amount: '2', unit: 'piece', category: 'fruit' },
+      { name: 'cumin', amount: '1', unit: 'tsp', category: 'spice' },
+      { name: 'chili powder', amount: '1', unit: 'tsp', category: 'spice' },
+      { name: 'garlic powder', amount: '1/2', unit: 'tsp', category: 'spice' },
+      { name: 'olive oil', amount: '2', unit: 'tbsp', category: 'oil' }
     ],
     instructions: [
-      { step: 1, instruction: 'Season and cook chicken until done', duration: 15 },
-      { step: 2, instruction: 'Dice chicken into small pieces', duration: 5 },
-      { step: 3, instruction: 'Warm tortillas in a dry pan', duration: 2 },
-      { step: 4, instruction: 'Fill tortillas with chicken', duration: 3 },
-      { step: 5, instruction: 'Top with onion, cilantro, and lime', duration: 2 }
+      { step: 1, instruction: 'Season chicken with cumin, chili powder, garlic powder, salt, and pepper', duration: 5 },
+      { step: 2, instruction: 'Heat olive oil in a skillet and cook chicken until golden and cooked through', duration: 15 },
+      { step: 3, instruction: 'Let chicken rest for 5 minutes, then dice into small pieces', duration: 5 },
+      { step: 4, instruction: 'Warm corn tortillas in a dry pan or over an open flame until slightly charred', duration: 2 },
+      { step: 5, instruction: 'Fill tortillas with chicken, diced onion, cilantro, and serve with lime wedges', duration: 3 }
     ],
-    tags: ['quick', 'fresh', 'customizable'],
+    tags: ['quick', 'fresh', 'customizable', 'street-food'],
     dietaryInfo: [],
     nutrition: { calories: 320, protein: 25, carbs: 28, fat: 12 }
   },
@@ -264,7 +283,7 @@ const additionalRecipes = [
   // Thai
   {
     title: 'Pad Thai',
-    description: 'Sweet and tangy stir-fried noodles with shrimp, tofu, and peanuts.',
+    description: 'Thailand\'s most famous noodle dish featuring rice noodles stir-fried with succulent shrimp, crispy tofu, bean sprouts, and eggs in a perfect balance of sweet, sour, and savory flavors. Garnished with crushed peanuts and fresh lime.',
     cuisine: 'Thai',
     difficulty: 'intermediate',
     prepTime: 20,
@@ -274,18 +293,23 @@ const additionalRecipes = [
     ingredients: [
       { name: 'rice noodles', amount: '8', unit: 'oz', category: 'grain' },
       { name: 'shrimp', amount: '1/2', unit: 'lb', category: 'protein' },
-      { name: 'tofu', amount: '4', unit: 'oz', category: 'protein' },
+      { name: 'firm tofu', amount: '4', unit: 'oz', category: 'protein' },
       { name: 'bean sprouts', amount: '1', unit: 'cup', category: 'vegetable' },
-      { name: 'peanuts', amount: '1/4', unit: 'cup', category: 'other' }
+      { name: 'crushed peanuts', amount: '1/4', unit: 'cup', category: 'other' },
+      { name: 'eggs', amount: '2', unit: 'piece', category: 'protein' },
+      { name: 'fish sauce', amount: '3', unit: 'tbsp', category: 'other' },
+      { name: 'tamarind paste', amount: '2', unit: 'tbsp', category: 'other' },
+      { name: 'palm sugar', amount: '2', unit: 'tbsp', category: 'other' },
+      { name: 'lime', amount: '2', unit: 'piece', category: 'fruit' }
     ],
     instructions: [
-      { step: 1, instruction: 'Soak rice noodles in warm water', duration: 15 },
-      { step: 2, instruction: 'Prepare pad thai sauce', duration: 5 },
-      { step: 3, instruction: 'Stir-fry shrimp and tofu', duration: 5 },
-      { step: 4, instruction: 'Add noodles and sauce, toss well', duration: 8 },
-      { step: 5, instruction: 'Garnish with peanuts and serve', duration: 2 }
+      { step: 1, instruction: 'Soak rice noodles in warm water until soft, then drain', duration: 15 },
+      { step: 2, instruction: 'Mix fish sauce, tamarind paste, and palm sugar to make pad thai sauce', duration: 5 },
+      { step: 3, instruction: 'Heat oil in wok, scramble eggs and set aside, then stir-fry shrimp and tofu', duration: 5 },
+      { step: 4, instruction: 'Add drained noodles and sauce, toss everything together for 3-4 minutes', duration: 8 },
+      { step: 5, instruction: 'Add bean sprouts and eggs back, garnish with peanuts, lime wedges, and serve immediately', duration: 2 }
     ],
-    tags: ['sweet-and-sour', 'stir-fry', 'authentic'],
+    tags: ['sweet-and-sour', 'stir-fry', 'authentic', 'street-food'],
     dietaryInfo: [],
     nutrition: { calories: 420, protein: 20, carbs: 55, fat: 15 }
   },
@@ -357,7 +381,7 @@ const moreRecipes = [
   // More Indian
   { title: 'Dal Tadka', cuisine: 'Indian', difficulty: 'beginner', prepTime: 10, cookTime: 25, servings: 4, description: 'Spiced lentil curry with aromatic tempering.', image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80', ingredients: [{ name: 'lentils', amount: '1', unit: 'cup', category: 'protein' }], instructions: [{ step: 1, instruction: 'Cook lentils until soft', duration: 20 }], tags: ['vegetarian', 'protein-rich'], dietaryInfo: ['vegetarian'], nutrition: { calories: 220, protein: 12, carbs: 35, fat: 5 } },
   { title: 'Samosa', cuisine: 'Indian', difficulty: 'intermediate', prepTime: 45, cookTime: 20, servings: 12, description: 'Crispy fried pastries filled with spiced potatoes.', image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80', ingredients: [{ name: 'potatoes', amount: '3', unit: 'piece', category: 'vegetable' }], instructions: [{ step: 1, instruction: 'Prepare filling with spiced potatoes', duration: 30 }], tags: ['fried', 'snack'], dietaryInfo: ['vegetarian'], nutrition: { calories: 150, protein: 3, carbs: 20, fat: 7 } },
-  { title: 'Palak Paneer', cuisine: 'Indian', difficulty: 'intermediate', prepTime: 20, cookTime: 30, servings: 4, description: 'Creamy spinach curry with cottage cheese cubes.', image: 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80', ingredients: [{ name: 'spinach', amount: '2', unit: 'bunch', category: 'vegetable' }, { name: 'paneer', amount: '200', unit: 'g', category: 'dairy' }], instructions: [{ step: 1, instruction: 'Blanch spinach and make puree', duration: 15 }], tags: ['vegetarian', 'creamy', 'healthy'], dietaryInfo: ['vegetarian'], nutrition: { calories: 280, protein: 15, carbs: 12, fat: 20 } },
+  { title: 'Palak Paneer', cuisine: 'Indian', difficulty: 'intermediate', prepTime: 20, cookTime: 30, servings: 4, description: 'A vibrant and nutritious North Indian curry featuring fresh spinach leaves pureed into a silky green sauce, studded with cubes of soft paneer cheese. Enhanced with aromatic spices like garam masala, cumin, and a touch of cream for richness.', image: 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80', ingredients: [{ name: 'fresh spinach', amount: '2', unit: 'bunch', category: 'vegetable' }, { name: 'paneer', amount: '200', unit: 'g', category: 'dairy' }, { name: 'onion', amount: '1', unit: 'piece', category: 'vegetable' }, { name: 'tomato', amount: '2', unit: 'piece', category: 'vegetable' }, { name: 'ginger-garlic paste', amount: '1', unit: 'tbsp', category: 'spice' }, { name: 'cumin seeds', amount: '1', unit: 'tsp', category: 'spice' }, { name: 'garam masala', amount: '1/2', unit: 'tsp', category: 'spice' }, { name: 'heavy cream', amount: '2', unit: 'tbsp', category: 'dairy' }], instructions: [{ step: 1, instruction: 'Blanch spinach leaves in boiling water for 2 minutes, then plunge in ice water and make smooth puree', duration: 15 }, { step: 2, instruction: 'Cut paneer into cubes and lightly fry until golden, set aside', duration: 5 }, { step: 3, instruction: 'Sauté cumin seeds, then add chopped onions and cook until golden', duration: 8 }, { step: 4, instruction: 'Add ginger-garlic paste, chopped tomatoes, and spices, cook until tomatoes break down', duration: 10 }, { step: 5, instruction: 'Add spinach puree, paneer cubes, and cream, simmer for 5 minutes and serve hot', duration: 7 }], tags: ['vegetarian', 'creamy', 'healthy', 'north-indian'], dietaryInfo: ['vegetarian'], nutrition: { calories: 280, protein: 15, carbs: 12, fat: 20 } },
   { title: 'Chole Bhature', cuisine: 'Indian', difficulty: 'intermediate', prepTime: 30, cookTime: 45, servings: 4, description: 'Spicy chickpea curry served with fluffy fried bread.', image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80', ingredients: [{ name: 'chickpeas', amount: '2', unit: 'cup', category: 'protein' }, { name: 'flour', amount: '2', unit: 'cup', category: 'grain' }], instructions: [{ step: 1, instruction: 'Prepare spicy chickpea curry', duration: 30 }], tags: ['spicy', 'filling', 'traditional'], dietaryInfo: ['vegetarian'], nutrition: { calories: 450, protein: 18, carbs: 65, fat: 15 } },
   { title: 'Masala Dosa', cuisine: 'Indian', difficulty: 'advanced', prepTime: 480, cookTime: 30, servings: 6, description: 'Crispy fermented crepe filled with spiced potato curry.', image: 'https://images.unsplash.com/photo-1630383249896-424e482df921?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80', ingredients: [{ name: 'rice', amount: '2', unit: 'cup', category: 'grain' }, { name: 'urad dal', amount: '1/2', unit: 'cup', category: 'protein' }], instructions: [{ step: 1, instruction: 'Soak rice and dal overnight', duration: 480 }], tags: ['fermented', 'crispy', 'south-indian'], dietaryInfo: ['vegetarian', 'gluten-free'], nutrition: { calories: 320, protein: 8, carbs: 58, fat: 6 } },
   { title: 'Rajma', cuisine: 'Indian', difficulty: 'beginner', prepTime: 15, cookTime: 40, servings: 4, description: 'Kidney bean curry in rich tomato gravy, perfect with rice.', image: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80', ingredients: [{ name: 'kidney beans', amount: '1', unit: 'cup', category: 'protein' }, { name: 'tomatoes', amount: '3', unit: 'piece', category: 'vegetable' }], instructions: [{ step: 1, instruction: 'Soak kidney beans overnight', duration: 480 }], tags: ['protein-rich', 'comfort-food', 'north-indian'], dietaryInfo: ['vegetarian', 'vegan'], nutrition: { calories: 250, protein: 14, carbs: 42, fat: 4 } },
