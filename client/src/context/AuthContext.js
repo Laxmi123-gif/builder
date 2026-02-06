@@ -4,7 +4,7 @@ import Cookies from 'js-cookie';
 import toast from 'react-hot-toast';
 
 // Configure axios base URL for API calls
-axios.defaults.baseURL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+axios.defaults.baseURL = process.env.REACT_APP_API_URL || 'http://localhost:5001';
 
 // Initial state
 const initialState = {
@@ -100,7 +100,7 @@ export const AuthProvider = ({ children }) => {
     const responseInterceptor = axios.interceptors.response.use(
       (response) => response,
       (error) => {
-        if (error.response?.status === 401) {
+        if (error.response?.status === 401 && !error.config.url.includes('logout')) {
           // Token expired or invalid
           logout();
           toast.error('Session expired. Please login again.');
@@ -207,26 +207,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // Google OAuth login
-  const loginWithGoogle = () => {
-    window.location.href = `${process.env.REACT_APP_API_URL || '/api'}/auth/google`;
-  };
 
-  // Handle Google OAuth success
-  const handleGoogleSuccess = (token) => {
-    try {
-      // Store token in cookie
-      Cookies.set('token', token, { expires: 7, secure: true, sameSite: 'strict' });
-      
-      // Check auth to get user data
-      checkAuth();
-      
-      toast.success('Successfully logged in with Google!');
-    } catch (error) {
-      console.error('Google auth error:', error);
-      toast.error('Google authentication failed');
-    }
-  };
 
   // Logout function
   const logout = async () => {
@@ -295,8 +276,7 @@ export const AuthProvider = ({ children }) => {
     ...state,
     login,
     register,
-    loginWithGoogle,
-    handleGoogleSuccess,
+
     logout,
     updateProfile,
     addToFavorites,

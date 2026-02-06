@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiUser, FiMail, FiLock, FiEye, FiEyeOff, FiArrowRight } from 'react-icons/fi';
-import { FcGoogle } from 'react-icons/fc';
+
 import { useForm } from 'react-hook-form';
 
 import { useAuth } from '../../context/AuthContext';
@@ -11,7 +11,7 @@ import LoadingSpinner from '../../components/ui/LoadingSpinner';
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const { register: registerUser, loginWithGoogle, isAuthenticated, loading } = useAuth();
+  const { register: registerUser, isAuthenticated, loading } = useAuth();
   const navigate = useNavigate();
 
   const {
@@ -37,9 +37,7 @@ const Register = () => {
     }
   };
 
-  const handleGoogleLogin = () => {
-    loginWithGoogle();
-  };
+
 
   if (loading) {
     return (
@@ -254,28 +252,7 @@ const Register = () => {
             </button>
           </form>
 
-          {/* Divider */}
-          <div className="mt-6">
-            <div className="relative">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-300 dark:border-gray-600" />
-              </div>
-              <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400">
-                  Or continue with
-                </span>
-              </div>
-            </div>
-          </div>
 
-          {/* Google Login */}
-          <button
-            onClick={handleGoogleLogin}
-            className="w-full mt-4 flex items-center justify-center px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200"
-          >
-            <FcGoogle size={20} className="mr-3" />
-            <span className="text-base font-medium">Sign up with Google</span>
-          </button>
 
           {/* Sign In Link */}
           <div className="mt-6 text-center">

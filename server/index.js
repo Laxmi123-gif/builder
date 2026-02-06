@@ -30,23 +30,27 @@ require('./config/passport')(passport);
 const app = express();
 
 // Middleware
-const allowedOrigins = [
-  process.env.CLIENT_URL || 'http://localhost:3000',
-  'http://localhost:3000',
-  'http://localhost:5001'
-];
+// In development allow all origins (convenient for local dev on different ports).
+// In production, only allow whitelisted origins to improve security.
+if (process.env.NODE_ENV !== 'production') {
+  app.use(cors({ origin: true, credentials: true }));
+} else {
+  const allowedOrigins = [
+    process.env.CLIENT_URL || 'https://your-frontend-url.example.com'
+  ];
 
-app.use(cors({
-  origin: function(origin, callback) {
-    // Allow requests with no origin (like mobile apps or curl requests)
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true
-}));
+  app.use(cors({
+    origin: function(origin, callback) {
+      // Allow requests with no origin (like mobile apps or curl requests)
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    credentials: true
+  }));
+}
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 app.use(passport.initialize());
@@ -66,7 +70,7 @@ app.get('/api/health', (req, res) => {
 app.use(errorHandler);
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/recipe-builder')
+mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://chlaxmi603:chlaxmi603@cluster0.uicxzdx.mongodb.net/?appName=Cluster0')
   .then(() => {
     console.log('Connected to MongoDB');
     
