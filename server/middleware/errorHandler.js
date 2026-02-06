@@ -4,6 +4,11 @@ const errorHandler = (err, req, res, next) => {
 
   console.error('Error:', err);
 
+  // Handle CORS errors
+  if (err.message === 'Not allowed by CORS') {
+    error = { message: 'Cross-Origin Request blocked', statusCode: 403 };
+  }
+
   // Mongoose bad ObjectId
   if (err.name === 'CastError') {
     const message = 'Resource not found';
@@ -35,7 +40,7 @@ const errorHandler = (err, req, res, next) => {
 
   res.status(error.statusCode || 500).json({
     success: false,
-    message: error.message || 'Server Error',
+    message: process.env.NODE_ENV === 'production' && error.statusCode === 500 ? 'Internal Server Error' : error.message || 'Server Error',
     ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
   });
 };

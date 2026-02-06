@@ -33,6 +33,9 @@ import { useTheme } from './context/ThemeContext';
 // Loading Component
 import LoadingSpinner from './components/ui/LoadingSpinner';
 
+// Error Boundary
+import ErrorBoundary from './components/ui/ErrorBoundary';
+
 function App() {
   const { loading } = useAuth();
   const { darkMode } = useTheme();
@@ -47,7 +50,8 @@ function App() {
   }
 
   return (
-    <div className={`min-h-screen flex flex-col ${darkMode ? 'dark' : ''}`}>
+    <ErrorBoundary>
+      <div className={`min-h-screen flex flex-col ${darkMode ? 'dark' : ''}`}>
       <Navbar />
       
       <main className="flex-grow">
@@ -229,6 +233,7 @@ function App() {
 
       <Footer />
     </div>
+    </ErrorBoundary>
   );
 }
 
