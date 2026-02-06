@@ -100,8 +100,8 @@ const Home = () => {
               transition={{ duration: 0.8 }}
               className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6"
             >
-              Cook with What You
-              <span className="text-gradient block">Have at Home</span>
+              Discover Your Next
+              <span className="text-gradient block">Culinary Adventure</span>
             </motion.h1>
             
             <motion.p
@@ -110,8 +110,8 @@ const Home = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto"
             >
-              Transform your available ingredients into delicious meals with our smart recipe matching algorithm. 
-              Discover personalized recipes, save your favorites, and become a better cook.
+              From simple ingredients to extraordinary meals. Discover personalized recipes that match your pantry, 
+              dietary preferences, and cooking skills. Join thousands of home chefs creating magic in their kitchens.
             </motion.p>
 
             {/* Search Bar */}
