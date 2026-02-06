@@ -5,8 +5,7 @@ import {
   FiBookOpen, 
   FiTrendingUp, 
   FiStar,
-  FiEye,
-  FiHeart
+  FiEye
 } from 'react-icons/fi';
 import axios from 'axios';
 import toast from 'react-hot-toast';

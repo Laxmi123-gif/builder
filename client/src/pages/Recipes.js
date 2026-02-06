@@ -29,11 +29,7 @@ const Recipes = () => {
     pages: 0
   });
 
-  useEffect(() => {
-    fetchRecipes();
-  }, [filters, pagination.page]);
-
-  const fetchRecipes = async () => {
+  const fetchRecipes = React.useCallback(async () => {
     setLoading(true);
     try {
       const params = new URLSearchParams({
@@ -55,7 +51,11 @@ const Recipes = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [filters, pagination.page, pagination.limit]);
+
+  useEffect(() => {
+    fetchRecipes();
+  }, [fetchRecipes]);
 
   const handleFilterChange = (key, value) => {
     const newFilters = { ...filters, [key]: value };

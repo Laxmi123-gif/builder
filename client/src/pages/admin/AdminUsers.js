@@ -17,11 +17,7 @@ const AdminUsers = () => {
     pages: 0
   });
 
-  useEffect(() => {
-    fetchUsers();
-  }, [pagination.page, searchTerm]);
-
-  const fetchUsers = async () => {
+  const fetchUsers = React.useCallback(async () => {
     setLoading(true);
     try {
       const params = new URLSearchParams({
@@ -43,7 +39,11 @@ const AdminUsers = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [pagination.page, pagination.limit, searchTerm]);
+
+  useEffect(() => {
+    fetchUsers();
+  }, [fetchUsers]);
 
   const handleStatusToggle = async (userId, currentStatus) => {
     try {

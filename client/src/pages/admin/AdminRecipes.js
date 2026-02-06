@@ -18,11 +18,7 @@ const AdminRecipes = () => {
     pages: 0
   });
 
-  useEffect(() => {
-    fetchRecipes();
-  }, [pagination.page, searchTerm, statusFilter]);
-
-  const fetchRecipes = async () => {
+  const fetchRecipes = React.useCallback(async () => {
     setLoading(true);
     try {
       const params = new URLSearchParams({
@@ -45,7 +41,11 @@ const AdminRecipes = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [pagination.page, pagination.limit, searchTerm, statusFilter]);
+
+  useEffect(() => {
+    fetchRecipes();
+  }, [fetchRecipes]);
 
   const handleStatusToggle = async (recipeId, currentStatus) => {
     try {
