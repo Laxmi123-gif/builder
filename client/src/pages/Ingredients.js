@@ -24,7 +24,7 @@ const Ingredients = () => {
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [matchedRecipes, setMatchedRecipes] = useState([]);
-  const [loading, setLoading] = useState(false);
+
   const [searchingRecipes, setSearchingRecipes] = useState(false);
   const [preferences, setPreferences] = useState({
     maxTime: '',
@@ -49,7 +49,7 @@ const Ingredients = () => {
     }, 300);
 
     return () => clearTimeout(timer);
-  }, [inputValue]);
+  }, [inputValue, fetchSuggestions]);
 
   // Load user preferences
   useEffect(() => {
@@ -63,7 +63,7 @@ const Ingredients = () => {
     }
   }, [user]);
 
-  const fetchSuggestions = async (query) => {
+  const fetchSuggestions = React.useCallback(async (query) => {
     try {
       // For demo purposes, we'll use a simple client-side suggestion system
       // In a real app, you'd call an API endpoint
@@ -88,7 +88,7 @@ const Ingredients = () => {
     } catch (error) {
       console.error('Error fetching suggestions:', error);
     }
-  };
+  }, [ingredients]);
 
   const addIngredient = (ingredient) => {
     const trimmedIngredient = ingredient.trim();

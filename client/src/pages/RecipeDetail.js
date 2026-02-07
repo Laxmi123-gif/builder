@@ -28,11 +28,7 @@ const RecipeDetail = () => {
   const [submittingRating, setSubmittingRating] = useState(false);
   const { isAuthenticated, user, addToFavorites, removeFromFavorites } = useAuth();
 
-  useEffect(() => {
-    fetchRecipe();
-  }, [id]);
-
-  const fetchRecipe = async () => {
+  const fetchRecipe = React.useCallback(async () => {
     try {
       const response = await axios.get(`/api/recipes/${id}`);
       setRecipe(response.data.data);
@@ -55,7 +51,11 @@ const RecipeDetail = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [id, navigate, user]);
+
+  useEffect(() => {
+    fetchRecipe();
+  }, [fetchRecipe]);
 
   const handleFavoriteToggle = async () => {
     if (!isAuthenticated) {
