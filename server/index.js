@@ -2,7 +2,14 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const passport = require('passport');
-require('dotenv').config();
+const path = require('path');
+
+// Load environment variables based on environment
+if (process.env.NODE_ENV === 'production') {
+  require('dotenv').config({ path: path.join(__dirname, '.env.production') });
+} else {
+  require('dotenv').config();
+}
 
 // Validate required environment variables
 if (!process.env.JWT_SECRET) {
@@ -35,9 +42,11 @@ const app = express();
 if (process.env.NODE_ENV !== 'production') {
   app.use(cors({ origin: true, credentials: true }));
 } else {
-  const allowedOrigins = [
-    process.env.CLIENT_URL || 'https://your-frontend-url.example.com'
-  ];
+  const allowedOrigins = (process.env.CLIENT_URL || 'https://your-frontend-url.example.com')
+    .split(',')
+    .map(url => url.trim());
+
+  console.log('Allowed Origins:', allowedOrigins); // Debug log
 
   app.use(cors({
     origin: function(origin, callback) {
@@ -45,6 +54,7 @@ if (process.env.NODE_ENV !== 'production') {
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
+        console.error('CORS Blocked Origin:', origin);
         callback(new Error('Not allowed by CORS'));
       }
     },
