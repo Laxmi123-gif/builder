@@ -37,32 +37,6 @@ const Ingredients = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
 
-  // Debounced ingredient suggestions
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (inputValue.trim().length > 1) {
-        fetchSuggestions(inputValue.trim());
-      } else {
-        setSuggestions([]);
-        setShowSuggestions(false);
-      }
-    }, 300);
-
-    return () => clearTimeout(timer);
-  }, [inputValue, fetchSuggestions]);
-
-  // Load user preferences
-  useEffect(() => {
-    if (user?.preferences) {
-      setPreferences(prev => ({
-        ...prev,
-        difficulty: user.preferences.skillLevel || '',
-        dietary: user.preferences.dietaryRestrictions?.[0] || '',
-        cuisine: user.preferences.cuisinePreferences?.[0] || ''
-      }));
-    }
-  }, [user]);
-
   const fetchSuggestions = React.useCallback(async (query) => {
     try {
       // For demo purposes, we'll use a simple client-side suggestion system
@@ -89,6 +63,34 @@ const Ingredients = () => {
       console.error('Error fetching suggestions:', error);
     }
   }, [ingredients]);
+
+  // Debounced ingredient suggestions
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (inputValue.trim().length > 1) {
+        fetchSuggestions(inputValue.trim());
+      } else {
+        setSuggestions([]);
+        setShowSuggestions(false);
+      }
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [inputValue, fetchSuggestions]);
+
+  // Load user preferences
+  useEffect(() => {
+    if (user?.preferences) {
+      setPreferences(prev => ({
+        ...prev,
+        difficulty: user.preferences.skillLevel || '',
+        dietary: user.preferences.dietaryRestrictions?.[0] || '',
+        cuisine: user.preferences.cuisinePreferences?.[0] || ''
+      }));
+    }
+  }, [user]);
+
+
 
   const addIngredient = (ingredient) => {
     const trimmedIngredient = ingredient.trim();
